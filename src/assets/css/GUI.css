@@ -1,0 +1,94 @@
+.button {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bolder;
+    line-height: 2.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: #333;
+    background-color: darkorange;
+    border-color: black;
+    border-radius: 50%;
+}
+
+.button:not(.disabled):active {
+    color: white;
+    box-shadow: 0 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.button:not(.disabled):hover {
+    background-color: orange;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.6);
+}
+
+.disabled {
+    -ms-touch-action: unset;
+    touch-action: unset;
+    cursor: unset;
+    background-color: #574023;
+}
+
+#gui {
+    height: 17.045%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    bottom: 18%;
+}
+
+.gui-group {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gui-group>div:not(.button) {
+    padding: 14px 0;
+}
+
+.gui-group>div {
+    margin: 0 2px;
+}
+
+#reset>span {
+    margin-left: -2px;
+}
+
+.gui-group #bet-input input, .gui-group #balance input {
+    background-color: darkorange;
+    color: white;
+    border: 1px black solid;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.gui-group #bet-input input:focus, .gui-group #balance input:focus {
+    outline: unset;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.6);
+}
+
+#balance, #bet-input {
+    padding: 0;
+    margin-top: -5px;
+    color: white;
+}
