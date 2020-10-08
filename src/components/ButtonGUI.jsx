@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../assets/css/Canvas.css";
+import "../assets/css/GUI-Button.css";
 
 class ButtonGUI extends React.Component {
   constructor(props) {
@@ -9,9 +9,14 @@ class ButtonGUI extends React.Component {
   }
   handleClick(e) {
     e.preventDefault();
-    const { playSound } = this.props;
-    if (playSound) {
-        playSound();
+    const { clickSound, clickAction, disabled } = this.props;
+    const buttonNotDisabled = !disabled;
+
+    if (buttonNotDisabled && clickSound) {
+      clickSound();
+    }
+    if (buttonNotDisabled && clickAction) {
+      clickAction();
     }
   }
   render() {

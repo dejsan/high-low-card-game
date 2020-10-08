@@ -1,0 +1,20 @@
+#balance, #bet-input {
+    padding: 0;
+    margin-top: -5px;
+    color: white;
+}
+
+#bet-input input, #balance input {
+    background-color: darkorange;
+    color: white;
+    border: 1px black solid;
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#bet-input input:focus, #balance input:focus {
+    outline: unset;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.6);
+}
