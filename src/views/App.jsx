@@ -1,6 +1,6 @@
 import React from "react";
 
-import Game from "./Game";
+import Game from "../containers/Game";
 
 import "../assets/css/App.css";
 

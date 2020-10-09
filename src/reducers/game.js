@@ -30,6 +30,10 @@ export default (state = initialState, action) => {
       return {
         ...state,
         bet: state.bet * constants.BET_MULTIPLIER,
+        messageType: null,
+        betType: null,
+        disableBetLoHi: false,
+        disableNewGame: false,
       };
 
     case constants.ACTION.PLACE_BET_MONEY:
@@ -39,22 +43,23 @@ export default (state = initialState, action) => {
       };
 
     case constants.ACTION.PLACE_BET:
+      const startOfGame = state.disablePlaceBetMoney === false;
+      const newBalance = startOfGame
+        ? state.balance - state.bet
+        : state.balance;
+
       return {
         ...state,
         betType: action.data.betType,
-        balance: state.balance - state.bet,
+        disableBetLoHi: true,
+        balance: newBalance,
+        disablePlaceBetMoney: true,
       };
 
     case constants.ACTION.SHOW_MESSAGE:
       return {
         ...state,
         messageType: action.data.messageType,
-      };
-
-    case constants.ACTION.HIDE_MESSAGE:
-      return {
-        ...state,
-        messageType: null,
       };
 
     case constants.ACTION.NEW_GAME:
@@ -68,7 +73,7 @@ export default (state = initialState, action) => {
 
     case constants.ACTION.GAME_OVER:
       return {
-        ...state,
+        ...initialState,
         balance: state.balance,
       };
 

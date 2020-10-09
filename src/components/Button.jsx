@@ -1,8 +1,8 @@
 import React from "react";
 
-import "../assets/css/GUI-Button.css";
+import "../assets/css/Button.css";
 
-class ButtonGUI extends React.Component {
+class Button extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -33,4 +33,4 @@ class ButtonGUI extends React.Component {
   }
 }
 
-export default ButtonGUI;
+export default Button;

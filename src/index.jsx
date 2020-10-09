@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import './assets/css/index.css';
-import App from './containers/App';
+import App from './views/App';
 
 const target = document.querySelector('#root')
 

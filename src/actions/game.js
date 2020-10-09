@@ -34,12 +34,6 @@ export const showMessage = (messageType) => {
   };
 };
 
-export const hideMessage = () => {
-  return {
-    type: constants.ACTION.HIDE_MESSAGE,
-  };
-};
-
 export const newGame = () => {
   return {
     type: constants.ACTION.NEW_GAME,

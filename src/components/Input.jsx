@@ -1,24 +1,28 @@
 import React from "react";
 
-import "../assets/css/GUI-Input.css";
+import "../assets/css/Input.css";
 
-class InputGUI extends React.Component {
+class Input extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.maxLengthCheck = this.maxLengthCheck.bind(this);
-    this.validateValue = this.validateValue.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
-    const { clickSound, clickAction, text } = this.props;
+    const { clickSound, clickAction, text, readOnly } = this.props;
+    const inputValue = e.target.value;
+
+    if (readOnly) return;
+
     if (clickSound) {
       clickSound();
     }
     if (clickAction) {
       switch (text) {
         case "Bet":
-          clickAction(parseInt(e.target.value));
+          clickAction(parseInt(inputValue));
           break;
         default:
           clickAction();
@@ -26,36 +30,40 @@ class InputGUI extends React.Component {
       }
     }
   }
-  maxLengthCheck = (object) => {
-    const { text } = this.props;
+  maxLengthCheck = (e) => {
+    const { text, readOnly } = this.props;
+
+    if (readOnly) return;
 
     switch (text) {
       case "Bet":
-        const length = object.target.value.length;
-        const maxLength = object.target.maxLength;
-        
+        const length = e.target.value.length;
+        const maxLength = e.target.maxLength;
+
         if (length > maxLength) {
-          object.target.value = object.target.value.slice(0, maxLength);
+          e.target.value = e.target.value.slice(0, maxLength);
         }
         break;
       default:
         break;
     }
   };
-  validateValue = (object) => {
-    const { text, clickAction } = this.props;
+  handleBlur = (e) => {
+    const { text, clickAction, readOnly } = this.props;
+
+    if (readOnly) return;
 
     switch (text) {
       case "Bet":
-        const min = parseInt(object.target.min);
-        const max = parseInt(object.target.max);
-        let value = parseInt(object.target.value);
+        const min = parseInt(e.target.min);
+        const max = parseInt(e.target.max);
+        let value = parseInt(e.target.value);
 
         if (value < min) {
-          object.target.value = min;
+          e.target.value = min;
           value = min;
         } else if (value > max) {
-          object.target.value = max;
+          e.target.value = max;
           value = max;
         }
         clickAction(parseInt(value));
@@ -69,8 +77,8 @@ class InputGUI extends React.Component {
       id,
       text,
       name,
-      value,
-      min = 0,
+      value = 1,
+      min = 1,
       max = 10000,
       step = 1,
       readOnly,
@@ -91,11 +99,11 @@ class InputGUI extends React.Component {
           maxLength={maxLength}
           onChange={this.handleChange}
           onInput={this.maxLengthCheck}
-          onBlur={this.validateValue}
+          onBlur={this.handleBlur}
         />
       </div>
     );
   }
 }
 
-export default InputGUI;
+export default Input;

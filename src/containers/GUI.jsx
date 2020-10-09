@@ -13,9 +13,9 @@ import {
   playSoundClick,
 } from "../actions/game";
 
-import ButtonGUI from "../components/ButtonGUI";
-import InputGUI from "../components/InputGUI";
-import MessageGUI from "../components/MessageGUI";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Message from "../components/Message";
 
 import "../assets/css/GUI.css";
 
@@ -38,7 +38,7 @@ class GUI extends React.Component {
     switch (messageType) {
       case constants.MESSAGE_TYPE.betLose:
         return (
-          <MessageGUI
+          <Message
             text="You lose."
             clickSound={playSoundClick}
             clickAction={gameOver}
@@ -46,7 +46,7 @@ class GUI extends React.Component {
         );
       case constants.MESSAGE_TYPE.betWin:
         return (
-          <MessageGUI
+          <Message
             text="You win!"
             clickSound={playSoundClick}
             clickAction={nextRound}
@@ -54,15 +54,23 @@ class GUI extends React.Component {
         );
       case constants.MESSAGE_TYPE.gameWin:
         return (
-          <MessageGUI
+          <Message
             text="Victory! Play again!"
             clickSound={playSoundClick}
             clickAction={newGame}
           />
         );
+      case constants.MESSAGE_TYPE.resetGame:
+        return (
+          <Message
+            text="Ups, balance is empty! We will have to reset the game for you!"
+            clickSound={playSoundClick}
+            clickAction={resetGame}
+          />
+        );
       default:
         return (
-          <MessageGUI
+          <Message
             text="Default Message"
             clickSound={playSoundClick}
             clickAction={resetGame}
@@ -75,6 +83,7 @@ class GUI extends React.Component {
     const {
       balance,
       bet,
+      currentCard,
       messageType,
       disableResetGame,
       disableBetLoHi,
@@ -93,29 +102,36 @@ class GUI extends React.Component {
       <div id="gui">
         {showMessage && this.renderMessage()}
         <div className="gui-group">
-          <ButtonGUI
+          <Button
             text="Reset"
             id="reset"
             clickSound={playSoundClick}
             clickAction={resetGame}
             disabled={disableResetGame}
           />
-          <InputGUI
+          <Input
             id="balance"
             text="Balance"
             name="balance"
             value={balance}
             readOnly
           />
+          <Input
+            id="balance"
+            text="Card"
+            name="balance"
+            value={currentCard ? currentCard : "None"}
+            readOnly
+          />
         </div>
         <div className="gui-group">
-          <ButtonGUI
+          <Button
             text="Low"
             clickSound={playSoundClick}
             clickAction={() => placeBet(constants.BET_TYPE.lo)}
             disabled={disableBetLoHi}
           />
-          <InputGUI
+          <Input
             text="Bet"
             id="bet-input"
             name="bet"
@@ -128,7 +144,7 @@ class GUI extends React.Component {
             clickAction={placeBetMoney}
             readOnly={disablePlaceBetMoney}
           />
-          <ButtonGUI
+          <Button
             text="High"
             clickSound={playSoundClick}
             clickAction={() => placeBet(constants.BET_TYPE.hi)}
@@ -136,7 +152,7 @@ class GUI extends React.Component {
           />
         </div>
         <div className="gui-group">
-          <ButtonGUI
+          <Button
             text="New"
             clickSound={playSoundClick}
             clickAction={newGame}
@@ -151,7 +167,7 @@ class GUI extends React.Component {
 const mapStateToProps = ({ game }) => ({
   balance: game.balance,
   bet: game.bet,
-  gui: game.gui,
+  currentCard: game.currentCard,
   messageType: game.messageType,
   disableResetGame: game.disableResetGame,
   disableBetLoHi: game.disableBetLoHi,

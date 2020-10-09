@@ -4,7 +4,6 @@ export const ACTION = {
   PLACE_BET_MONEY: "game/PLACE_BET_MONEY",
   PLACE_BET: "game/PLACE_BET",
   SHOW_MESSAGE: "game/SHOW_MESSAGE",
-  HIDE_MESSAGE: "game/HIDE_MESSAGE",
   NEW_GAME: "game/NEW_GAME",
   RESET_GAME: "game/RESET_GAME",
   GAME_OVER: "game/GAME_OVER",
@@ -12,6 +11,7 @@ export const ACTION = {
 };
 
 export const INIT_GAME_STATE = {
+  enableBet: true,
   balance: 100,
   bet: 10,
   betType: null,
@@ -36,4 +36,5 @@ export const MESSAGE_TYPE = {
   betWin: "betWin",
   betLose: "betLose",
   gameWin: "gameWin",
+  resetGame: "resetGame",
 };

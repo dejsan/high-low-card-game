@@ -1,8 +1,8 @@
 import React from "react";
 
-import "../assets/css/GUI-Message.css";
+import "../assets/css/Message.css";
 
-class MessageGUI extends React.Component {
+class Message extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -30,4 +30,4 @@ class MessageGUI extends React.Component {
   }
 }
 
-export default MessageGUI;
+export default Message;
