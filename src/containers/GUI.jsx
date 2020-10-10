@@ -83,7 +83,6 @@ class GUI extends React.Component {
     const {
       balance,
       bet,
-      currentCard,
       messageType,
       disableResetGame,
       disableBetLoHi,
@@ -114,13 +113,6 @@ class GUI extends React.Component {
             text="Balance"
             name="balance"
             value={balance}
-            readOnly
-          />
-          <Input
-            id="balance"
-            text="Card"
-            name="balance"
-            value={currentCard ? currentCard : "None"}
             readOnly
           />
         </div>
@@ -167,7 +159,6 @@ class GUI extends React.Component {
 const mapStateToProps = ({ game }) => ({
   balance: game.balance,
   bet: game.bet,
-  currentCard: game.currentCard,
   messageType: game.messageType,
   disableResetGame: game.disableResetGame,
   disableBetLoHi: game.disableBetLoHi,
