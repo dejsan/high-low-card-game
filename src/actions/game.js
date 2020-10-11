@@ -1,5 +1,6 @@
 import * as constants from "../constants";
 import ClickSound from "../assets/sound/click.mp3";
+import Music from "../assets/sound/music.mp3";
 
 export const drawCard = () => {
   return {
@@ -59,3 +60,13 @@ export const playSoundClick = () => {
     type: constants.ACTION.PLAY_SOUND_CLICK,
   };
 };
+
+export const playBackgroundMusic = () => {
+    const music = new Audio(Music);
+    music.loop = true;
+    music.volume = 0.5;
+    music.play();
+    return {
+      type: constants.ACTION.PLAY_BACKGROUND_MUSIC,
+    };
+  };

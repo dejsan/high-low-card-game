@@ -4,7 +4,7 @@ import * as constants from "../constants";
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { drawCard, showMessage, resetGame } from "../actions/game";
+import { drawCard, showMessage, resetGame, playBackgroundMusic } from "../actions/game";
 
 import Canvas from "./Canvas";
 import GUI from "./GUI";
@@ -13,7 +13,9 @@ import "../assets/css/Game.css";
 
 class Game extends React.Component {
   componentDidMount() {
-    const { betType, currentCard, drawCard } = this.props;
+    const { betType, currentCard, drawCard, playBackgroundMusic } = this.props;
+
+    playBackgroundMusic();
 
     if (!currentCard && !betType) {
       drawCard();
@@ -93,6 +95,7 @@ const mapDispatchToProps = (dispatch) =>
       drawCard,
       showMessage,
       resetGame,
+      playBackgroundMusic,
     },
     dispatch
   );

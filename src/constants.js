@@ -8,6 +8,7 @@ export const ACTION = {
   RESET_GAME: "game/RESET_GAME",
   GAME_OVER: "game/GAME_OVER",
   PLAY_SOUND_CLICK: "game/PLAY_SOUND_CLICK",
+  PLAY_BACKGROUND_MUSIC: "game/PLAY_BACKGROUND_MUSIC",
 };
 
 export const INIT_GAME_STATE = {
