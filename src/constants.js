@@ -32,9 +32,28 @@ export const BET_TYPE = {
 
 export const BET_MULTIPLIER = 2;
 
+export const MESSAGE_DELAY = 500;
 export const MESSAGE_TYPE = {
   betWin: "betWin",
   betLose: "betLose",
   gameWin: "gameWin",
   resetGame: "resetGame",
 };
+
+export const CANVAS_SIZE = {
+  width: 626,
+  height: 362,
+};
+
+export const SPRITESHEET_URL = "assets/spritesheets/cards.json";
+
+export const CARD_BACK = [
+  "BackBlue_1.png",
+  "BackBlue_2.png",
+  "BackGrey_1.png",
+  "BackGrey_2.png",
+  "BackRed_1.png",
+  "BackRed_2.png",
+];
+
+export const CARD_FRONT = ["Clubs_", "Diamond_", "Hearts_", "Spades_"];

@@ -54,6 +54,7 @@ export default (state = initialState, action) => {
         disableBetLoHi: true,
         balance: newBalance,
         disablePlaceBetMoney: true,
+        disableNewGame: true,
       };
 
     case constants.ACTION.SHOW_MESSAGE:

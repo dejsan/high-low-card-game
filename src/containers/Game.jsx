@@ -49,16 +49,24 @@ class Game extends React.Component {
     if (shouldShowMessage) {
       if (isBetWin) {
         if (isLastRound) {
-          showMessage(constants.MESSAGE_TYPE.gameWin);
+          setTimeout(() => {
+            showMessage(constants.MESSAGE_TYPE.gameWin);
+          }, constants.MESSAGE_DELAY);
         } else {
-          showMessage(constants.MESSAGE_TYPE.betWin);
+          setTimeout(() => {
+            showMessage(constants.MESSAGE_TYPE.betWin);
+          }, constants.MESSAGE_DELAY);
         }
       } else {
-        showMessage(constants.MESSAGE_TYPE.betLose);
+        setTimeout(() => {
+          showMessage(constants.MESSAGE_TYPE.betLose);
+        }, constants.MESSAGE_DELAY);
       }
     }
     if (shouldResetGame) {
-      showMessage(constants.MESSAGE_TYPE.resetGame);
+      setTimeout(() => {
+        showMessage(constants.MESSAGE_TYPE.resetGame);
+      }, constants.MESSAGE_DELAY);
     }
   }
 
