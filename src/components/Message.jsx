@@ -18,10 +18,18 @@ class Message extends React.Component {
     }
   }
   render() {
-    const { text } = this.props;
+    const { text, color } = this.props;
+
+    let messageContentClasses = "message-content";
+    if (color && color === "red") {
+      messageContentClasses += " message-color-red";
+    } else if (color && color === "green") {
+      messageContentClasses += " message-color-green";
+    }
+
     return (
       <div className="message" onClick={this.handleClick}>
-        <div className="message-content">
+        <div className={messageContentClasses}>
           <p>{text}</p>
           <span>Click to continue...</span>
         </div>

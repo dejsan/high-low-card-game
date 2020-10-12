@@ -2,6 +2,10 @@ import * as constants from "../constants";
 import ClickSound from "../assets/sound/click.mp3";
 import Music from "../assets/sound/music.mp3";
 
+const music = new Audio(Music);
+music.loop = true;
+music.volume = 0.5;
+
 export const drawCard = () => {
   return {
     type: constants.ACTION.DRAW_CARD,
@@ -61,12 +65,13 @@ export const playSoundClick = () => {
   };
 };
 
-export const playBackgroundMusic = () => {
-    const music = new Audio(Music);
-    music.loop = true;
-    music.volume = 0.5;
+export const toggleBackgroundMusic = () => {
+  if (music.paused) {
     music.play();
-    return {
-      type: constants.ACTION.PLAY_BACKGROUND_MUSIC,
-    };
+  } else {
+    music.pause();
+  }
+  return {
+    type: constants.ACTION.TOGGLE_BACKGROUND_MUSIC,
   };
+};

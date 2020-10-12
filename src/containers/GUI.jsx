@@ -11,6 +11,7 @@ import {
   gameOver,
   nextRound,
   playSoundClick,
+  toggleBackgroundMusic,
 } from "../actions/game";
 
 import Button from "../components/Button";
@@ -22,7 +23,6 @@ import "../assets/css/GUI.css";
 class GUI extends React.Component {
   constructor(props) {
     super(props);
-
     this.renderMessage = this.renderMessage.bind(this);
   }
   renderMessage() {
@@ -39,17 +39,19 @@ class GUI extends React.Component {
       case constants.MESSAGE_TYPE.betLose:
         return (
           <Message
-            text="You lose."
+            text="Bad luck"
             clickSound={playSoundClick}
             clickAction={gameOver}
+            color="red"
           />
         );
       case constants.MESSAGE_TYPE.betWin:
         return (
           <Message
-            text="You win!"
+            text="Great job"
             clickSound={playSoundClick}
             clickAction={nextRound}
+            color="green"
           />
         );
       case constants.MESSAGE_TYPE.gameWin:
@@ -58,14 +60,16 @@ class GUI extends React.Component {
             text="Victory! Play again!"
             clickSound={playSoundClick}
             clickAction={newGame}
+            color="green"
           />
         );
       case constants.MESSAGE_TYPE.resetGame:
         return (
           <Message
-            text="Ups, balance is empty! We will have to reset the game for you!"
+            text="Bad luck + Balance reseted"
             clickSound={playSoundClick}
             clickAction={resetGame}
+            color="red"
           />
         );
       default:
@@ -74,6 +78,7 @@ class GUI extends React.Component {
             text="Default Message"
             clickSound={playSoundClick}
             clickAction={resetGame}
+            color="red"
           />
         );
     }
@@ -93,6 +98,7 @@ class GUI extends React.Component {
       placeBetMoney,
       placeBet,
       playSoundClick,
+      toggleBackgroundMusic,
     } = this.props;
 
     const showMessage = messageType;
@@ -101,6 +107,12 @@ class GUI extends React.Component {
       <div id="gui">
         {showMessage && this.renderMessage()}
         <div className="gui-group">
+          <Button
+            text="Music"
+            id="music"
+            clickSound={playSoundClick}
+            clickAction={toggleBackgroundMusic}
+          />
           <Button
             text="Reset"
             id="reset"
@@ -176,6 +188,7 @@ const mapDispatchToProps = (dispatch) =>
       gameOver,
       nextRound,
       playSoundClick,
+      toggleBackgroundMusic,
     },
     dispatch
   );

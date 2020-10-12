@@ -19,16 +19,33 @@
 
 .message-content {
     color: white;
-    background: rgb(255, 0, 0);
-    background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(84, 3, 19, 1) 89%);
-    height: 100px;
+    border: black solid 4px;
+    height: auto;
     width: 100%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
-.message-content span {
-    color: black;
+.message-color-green {
+    background: radial-gradient(circle, rgba(0, 255, 0, 1) 20%, rgba(3, 84, 19, 0.8) 80%);
+    color: black !important;
+}
+
+.message-color-red {
+    background: radial-gradient(circle, rgba(255, 0, 0, 1) 20%, rgba(84, 3, 19, 0.8) 80%);
+}
+
+.message-content>p {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-decoration: underline;
+}
+
+.message-content>span {
+    font-size: 14px;
 }
