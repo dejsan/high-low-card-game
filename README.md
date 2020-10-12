@@ -2,8 +2,8 @@
 
 Made with React/Redux/Redux-Persist/Pixi.js.
 
-<img width="400" alt="react pixi hi-lo card game screenshot 1" src="https://github.com/dejsan/puzzle-game/blob/master/public/assets/screenshots/1.jpg">
-<img width="400" alt="react pixi hi-lo card game screenshot 2" src="https://github.com/dejsan/puzzle-game/blob/master/public/assets/screenshots/2.jpg">
+<img width="400" alt="react pixi hi-lo card game screenshot 1" src="https://github.com/dejsan/high-low-card-game/blob/master/public/assets/screenshots/1.jpg">
+<img width="400" alt="react pixi hi-lo card game screenshot 2" src="https://github.com/dejsan/high-low-card-game/blob/master/public/assets/screenshots/2.jpg">
 
 ## How to:
 
