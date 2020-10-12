@@ -13,9 +13,9 @@ Made with React/Redux/Redux-Persist/Pixi.js.
 4. Start app: `npm start`
 
 *Note:*
-*- Install Git and Node.js(Npm comes with Node.js) on your computer if you don't have them.*
+*- Install Git and Node.js (Npm comes with Node.js) on your computer if you don't have them.*
 
-## TODO:
+## To-Do:
 - Music button currently toggles music, should implement sound icon that changes states from pause to play and vice versa. 
 (playBackgroundMusic will be splitted into two actions play and pause background music)
 - Try to find another background music with better loop.
